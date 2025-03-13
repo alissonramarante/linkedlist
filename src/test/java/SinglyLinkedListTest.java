@@ -1,4 +1,4 @@
-import linkedlist.SimplesLinkedListImpl;
+import linkedlist.SingleLinkedListImpl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -8,11 +8,11 @@ import org.junit.*;
 
 public class SinglyLinkedListTest {
 
-    private SimplesLinkedListImpl list;
+    private SingleLinkedListImpl list;
 
     @Before
     public void setUp() {
-        list = new SimplesLinkedListImpl(); // Inicializa uma nova lista antes de cada teste
+        list = new SingleLinkedListImpl(); // Inicializa uma nova lista antes de cada teste
     }
 
     @Test
@@ -71,42 +71,6 @@ public class SinglyLinkedListTest {
         assertEquals(30, list.size());
     }
 
-    @Test
-    public void testUnion() {
-        SimplesLinkedListImpl list1 = new SimplesLinkedListImpl();
-        list1.insertAtEnd(10);
-        list1.insertAtEnd(20);
-
-        SimplesLinkedListImpl list2 = new SimplesLinkedListImpl();
-        list2.insertAtEnd(20);
-        list2.insertAtEnd(30);
-
-        SimplesLinkedListImpl unionList =  (SimplesLinkedListImpl) list1.union(list2);
-        assertEquals(3, unionList.size());
-    }
-
-    @Test
-    public void testIntersection() {
-        SimplesLinkedListImpl list1 = new SimplesLinkedListImpl();
-        list1.insertAtEnd(10);
-        list1.insertAtEnd(20);
-
-        SimplesLinkedListImpl list2 = new SimplesLinkedListImpl();
-        list2.insertAtEnd(20);
-        list2.insertAtEnd(30);
-
-        SimplesLinkedListImpl intersectionList = (SimplesLinkedListImpl) list1.intersection(list2);
-        assertEquals(1, intersectionList.size());
-    }
-
-    @Test
-    public void testSort() {
-        list.insertAtEnd(30);
-        list.insertAtEnd(10);
-        list.insertAtEnd(20);
-        list.sort();
-        assertEquals(10, list.size());
-    }
 
     @Test
     public void testRemoveDuplicates() {

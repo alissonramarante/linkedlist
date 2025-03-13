@@ -1,40 +1,34 @@
 package linkedlist;
 
-public interface DoublyLinkedList {
-    // 1: Maior elemento
-    int findMax();
-    int size();
+public interface DoubleLinkedList<T> extends LinkedList<T> {
 
-    // 2: Inserir e remover em posição específica
-    void insertAtPosition(int position, int data);
-    void removeAtPosition(int position);
+    public void insert(T element);
+    public void insertFirst(T element);
+    public void removeFirst();
+    public void removeLast();
+    public int findMax(); // Maior elemento
+    public int findMin(); // Menor Elemento
+    public void insertAtPosition(int position, int data);
+    public void removeAtPosition(int position);
 
     // 3: k-ésimo menor elemento
-    int kthSmallest(int k);
+    public int kthSmallest(int k);
 
     // 4: Média dos elementos
-    double calculateAverage();
+    public double calculateAverage();
 
     // 5: Mediana da lista
-    double findMedian();
+    public double findMedian();
 
     // 6: Verificar se a lista é palíndromo
-    boolean isPalindrome();
+    public boolean isPalindrome();
 
     // 7: Rotacionar a lista
-    void rotate(int k);
-
-    // 8: Dividir a lista em duas
-    DoublyLinkedList[] splitList(int position);
-
-    // 9: Concatenar duas listas
-    void concatenate(DoublyLinkedList otherList);
+    public void rotate(int k);
 
     // 10: Enésimo nó a partir do fim
-    int nthFromEnd(int n);
+    public int nthFromEnd(int n);
 
-    // Método auxiliar para impressão da lista
-    void printList();
 }
 
 /*

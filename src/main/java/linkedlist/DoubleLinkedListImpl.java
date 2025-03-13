@@ -1,27 +1,32 @@
 package linkedlist;
 
-public class DoublyLinkedListImpl implements DoublyLinkedList{
+public class DoubleLinkedListImpl<T> extends SingleLinkedListImpl<T> implements
+DoubleLinkedList<T> {
 
-    private DoublyNode head;
-    private DoublyNode tail;
+    protected DoubleLinkedListNode<T> last;
 
-    private static class DoublyNode {
-        int data;
-        DoublyNode next;
-        DoublyNode previous;
+	public DoubleLinkedListImpl() {
+		this.head = new DoubleLinkedListNode<T>();
+		this.last = (DoubleLinkedListNode<T>) head;
+	}
 
-        public DoublyNode(int data) {
-            this.data = data;
-            this.next = null;
-            this.previous = null;
-        }
+    @Override
+    public void insertFirst(T element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insertFirst'");
     }
 
-    public DoublyLinkedListImpl() {
-        this.head = null;
-        this.tail = null;
+    @Override
+    public void removeFirst() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removeFirst'");
     }
 
+    @Override
+    public void removeLast() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
+    }
 
     @Override
     public int findMax() {
@@ -30,9 +35,9 @@ public class DoublyLinkedListImpl implements DoublyLinkedList{
     }
 
     @Override
-    public void insertAtPosition(int position, int data) {
+    public int findMin() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertAtPosition'");
+        throw new UnsupportedOperationException("Unimplemented method 'findMin'");
     }
 
     @Override
@@ -72,34 +77,19 @@ public class DoublyLinkedListImpl implements DoublyLinkedList{
     }
 
     @Override
-    public DoublyLinkedList[] splitList(int position) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'splitList'");
-    }
-
-    @Override
-    public void concatenate(DoublyLinkedList otherList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'concatenate'");
-    }
-
-    @Override
     public int nthFromEnd(int n) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'nthFromEnd'");
     }
 
-    @Override
-    public void printList() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printList'");
-    }
+    public DoubleLinkedListNode<T> getLast() {
+		return this.last;
+	}
+
+	public void setLast(DoubleLinkedListNode<T> last) {
+		this.last = last;
+	}
 
 
-    @Override
-    public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
-    }
-    
+   
 }

@@ -1,21 +1,47 @@
 package linkedlist;
 
-public class SimplesLinkedListImpl implements LinkedList {
+public class SingleLinkedListImpl<T> implements LinkedList<T> {
 
-    private Node head;
+    protected SingleLinkedListNode<T> head;
 
-    private static class Node {
-        int data;
-        Node next;
+	public SingleLinkedListImpl() {
+		this.head = new SingleLinkedListNode<T>();
+	}
 
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
+    @Override
+    public boolean isEmpty() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 
-    public SimplesLinkedListImpl() {
-        this.head = null;
+    @Override
+    public int size() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'size'");
+    }
+
+    @Override
+    public T search(T element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'search'");
+    }
+
+    @Override
+    public void insert(T element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+    }
+
+    @Override
+    public void remove(T element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    }
+
+    @Override
+    public T[] toArray() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
     @Override
@@ -43,12 +69,6 @@ public class SimplesLinkedListImpl implements LinkedList {
     }
 
     @Override
-    public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
-    }
-
-    @Override
     public boolean contains(int data) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'contains'");
@@ -61,36 +81,18 @@ public class SimplesLinkedListImpl implements LinkedList {
     }
 
     @Override
-    public LinkedList union(LinkedList otherList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'union'");
-    }
-
-    @Override
-    public LinkedList intersection(LinkedList otherList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'intersection'");
-    }
-
-    @Override
-    public void sort() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'sort'");
-    }
-
-    @Override
     public void removeDuplicates() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeDuplicates'");
     }
 
-    @Override
-    public void printList() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printList'");
-    }
-   
+    public SingleLinkedListNode<T> getHead() {
+		return this.head;
+	}
 
+	public void setHead(SingleLinkedListNode<T> head) {
+		this.head = head;
+	}
 }
 /* 
  * 01 - Implementação Básica de LinkedList
