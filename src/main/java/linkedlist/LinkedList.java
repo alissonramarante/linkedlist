@@ -5,7 +5,7 @@ public interface LinkedList <T>{
     public boolean isEmpty();
     public int size();
     public T search(T element);
-    public boolean searchPosition(int position, T element);
+    public T searchPosition(int position);
     public void insertFirst(T element);
     public void insertLast(T element);
     public void insertPosition(int position, T element);    

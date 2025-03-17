@@ -1,53 +1,100 @@
 package linkedlist;
 
-public class SingleLinkedListImpl<T> implements LinkedList<T> {
+public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
-    protected SingleLinkedListNode<T> head;
+    protected T data;
+    protected RecursiveSingleLinkedListImpl<T> next;
 
-	public SingleLinkedListImpl() {
-		this.head = new SingleLinkedListNode<T>();
-	}
+    public RecursiveSingleLinkedListImpl() {
+
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public RecursiveSingleLinkedListImpl<T> getNext() {
+        return next;
+    }
+
+    public void setNext(RecursiveSingleLinkedListImpl<T> next) {
+        this.next = next;
+    }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return this.getData() == null;
     }
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        int cont = 0;
+        if (!this.isEmpty()) {
+            cont = 1 + this.getNext().size();
+        }
+        return cont;
     }
 
     @Override
     public T search(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'search'");
+        T result = null;
+        if (element != null && !this.isEmpty()) {
+            if (this.getData().equals(element)) {
+                result = this.getData();
+            } else {
+                result = this.getNext().search(element);
+            }
+
+        }
+        return result;
     }
 
     @Override
     public T searchPosition(int position) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'searchPosition'");
+        T result = null;
+        if (position == 0 && position <= this.size()) {
+            result = this.getData();
+        } else {
+            result = this.getNext().searchPosition(position - 1);
+        }
+        return result;
     }
 
     @Override
     public void insertFirst(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertFirst'");
+        if(element != null && !this.isEmpty()){
+            this.setData(element);
+            this.setNext(new RecursiveSingleLinkedListImpl<>());
+        } else{
+            RecursiveSingleLinkedListImpl<T> newNode = new RecursiveSingleLinkedListImpl<>();
+            newNode.setData(element);
+            newNode.setNext(this);
+            this.setData(newNode.getData());
+            this.setNext(newNode.getNext());
+        }
     }
 
     @Override
     public void insertLast(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertLast'");
+        if(element != null && this.isEmpty()){
+            this.setData(element);
+            this.setNext(new RecursiveSingleLinkedListImpl<>());
+        } else{
+            this.getNext().insertLast(element);
+        }
     }
 
     @Override
     public void insertPosition(int position, T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insertPosition'");
+        if(element != null && position == 0){
+            T newNode = this.getData();
+        } else{
+            this.getNext().insertPosition(position - 1, element);
+        }
     }
 
     @Override
@@ -140,11 +187,4 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
 
-    public SingleLinkedListNode<T> getHead() {
-		return this.head;
-	}
-
-	public void setHead(SingleLinkedListNode<T> head) {
-		this.head = head;
-	}      
 }

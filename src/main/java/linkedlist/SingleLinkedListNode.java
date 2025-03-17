@@ -1,9 +1,10 @@
 package linkedlist;
 
 public class SingleLinkedListNode<T> {
-    protected T data;
+	
+	protected T data;
 	protected SingleLinkedListNode<T> next;
-    
+
 	public SingleLinkedListNode() {
 	}
 
@@ -58,5 +59,4 @@ public class SingleLinkedListNode<T> {
 		this.next = next;
 	}
 
-    
 }

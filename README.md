@@ -24,9 +24,9 @@ Este projeto consiste na implementação de uma **LinkedList** (lista encadeada)
 
 ---
 
-### 4. `public boolean searchPosition(int position, T element)`
-- **Descrição**: Verifica se um elemento está presente em uma posição específica da lista.
-- **Retorno**: `true` se o elemento estiver na posição especificada, `false` caso contrário.
+### 4. `public T searchPosition(int position)`
+- **Descrição**: Busca um elemento em uma posição específica da lista.
+- **Retorno**: O elemento encontrado ou `null` caso a posição seja menor que zero e maior que o tamanho da lista.
 
 ---
 
