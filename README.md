@@ -123,9 +123,3 @@ Este projeto consiste na implementação de uma **LinkedList** (lista encadeada)
 - **Retorno**: `true` se o elemento estiver na lista, `false` caso contrário.
 
 ---
-
-## Como Utilizar
-
-1. **Criação da Lista**:
-   ```java
-   LinkedList<Integer> list = new LinkedList<>();
