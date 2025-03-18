@@ -66,13 +66,13 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
     @Override
     public void insertFirst(T element) {
-        if(element != null && !this.isEmpty()){
-            this.setData(element);
-            this.setNext(new RecursiveSingleLinkedListImpl<>());
-        } else{
+
+        if (element != null) {
             RecursiveSingleLinkedListImpl<T> newNode = new RecursiveSingleLinkedListImpl<>();
+
             newNode.setData(element);
             newNode.setNext(this);
+
             this.setData(newNode.getData());
             this.setNext(newNode.getNext());
         }
@@ -80,31 +80,31 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
     @Override
     public void insertLast(T element) {
-        if(element != null && this.isEmpty()){
+        if (element != null && this.isEmpty()) {
             this.setData(element);
             this.setNext(new RecursiveSingleLinkedListImpl<>());
-        } else{
+        } else {
             this.getNext().insertLast(element);
         }
     }
 
     @Override
     public void insertPosition(int position, T element) {
-        if(element != null && position == 0){
+        if (element != null && position == 0) {
             T newNode = this.getData();
-        } else{
+        } else {
             this.getNext().insertPosition(position - 1, element);
         }
     }
 
     @Override
-    public void removeFirst(T element) {
+    public void removeFirst() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeFirst'");
     }
 
     @Override
-    public void removeLast(T element) {
+    public void removeLast() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
     }
@@ -116,15 +116,23 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
     }
 
     @Override
-    public void removePosition(T element) {
+    public void removePosition(int position) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removePosition'");
     }
 
     @Override
     public T[] toArray() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+        T[] array = (T[]) new Comparable[this.size()];
+        this.toArray(array, 0);
+        return array;
+    }
+
+    private void toArray(T[] array, int i) {
+        if (!this.isEmpty()) {
+            array[i] = this.data;
+            this.next.toArray(array, i + 1);
+        }
     }
 
     @Override

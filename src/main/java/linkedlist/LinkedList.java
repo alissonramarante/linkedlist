@@ -9,10 +9,10 @@ public interface LinkedList <T>{
     public void insertFirst(T element);
     public void insertLast(T element);
     public void insertPosition(int position, T element);    
-    public void removeFirst(T element);
-    public void removeLast(T element);
+    public void removeFirst();
+    public void removeLast();
     public void removeValue(T element);
-    public void removePosition(T element);
+    public void removePosition(int position);
     public T[] toArray();
     public void removeDuplicates(); //método que remova todos os elementos duplicados da lista, mantendo apenas a primeira ocorrência de cada valor.
     public void unionList(LinkedList<T> l1, LinkedList<T> l2); //método que receba duas listas encadeadas e retorne uma nova lista que seja a união das duas, sem elementos repetidos.

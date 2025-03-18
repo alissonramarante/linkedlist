@@ -8,11 +8,22 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 		this.head = new SingleLinkedListNode<T>();
 	}
 
+   
+    public SingleLinkedListNode<T> getHead() {
+		return this.head;
+	}
+
+	public void setHead(SingleLinkedListNode<T> head) {
+		this.head = head;
+	}
+
+
     @Override
     public boolean isEmpty() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
+
 
     @Override
     public int size() {
@@ -20,11 +31,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'size'");
     }
 
+
     @Override
     public T search(T element) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'search'");
     }
+
 
     @Override
     public T searchPosition(int position) {
@@ -32,11 +45,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'searchPosition'");
     }
 
+
     @Override
     public void insertFirst(T element) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'insertFirst'");
     }
+
 
     @Override
     public void insertLast(T element) {
@@ -44,23 +59,27 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'insertLast'");
     }
 
+
     @Override
     public void insertPosition(int position, T element) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'insertPosition'");
     }
 
+
     @Override
-    public void removeFirst(T element) {
+    public void removeFirst() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeFirst'");
     }
 
+
     @Override
-    public void removeLast(T element) {
+    public void removeLast() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
     }
+
 
     @Override
     public void removeValue(T element) {
@@ -68,11 +87,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'removeValue'");
     }
 
+
     @Override
-    public void removePosition(T element) {
+    public void removePosition(int position) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removePosition'");
     }
+
 
     @Override
     public T[] toArray() {
@@ -80,11 +101,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
+
     @Override
     public void removeDuplicates() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'removeDuplicates'");
     }
+
 
     @Override
     public void unionList(LinkedList<T> l1, LinkedList<T> l2) {
@@ -92,11 +115,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'unionList'");
     }
 
+
     @Override
     public void mergedList(LinkedList<T> l1, LinkedList<T> l2) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mergedList'");
     }
+
 
     @Override
     public void sortedList(T element) {
@@ -104,11 +129,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'sortedList'");
     }
 
+
     @Override
     public void intersectionList(LinkedList<T> l1, LinkedList<T> l2) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'intersectionList'");
     }
+
 
     @Override
     public void reverse() {
@@ -116,11 +143,13 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'reverse'");
     }
 
+
     @Override
     public void rotateRight() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'rotateRight'");
     }
+
 
     @Override
     public boolean isPalindrome() {
@@ -128,23 +157,17 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'isPalindrome'");
     }
 
+
     @Override
     public T findMiddle() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findMiddle'");
     }
 
+
     @Override
     public boolean contains(T element) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'contains'");
-    }
-
-    public SingleLinkedListNode<T> getHead() {
-		return this.head;
-	}
-
-	public void setHead(SingleLinkedListNode<T> head) {
-		this.head = head;
-	}      
+    }      
 }
