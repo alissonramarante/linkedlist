@@ -41,85 +41,136 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
     @Override
     public T search(T element) {
-        T result = null;
-        if (element != null && !this.isEmpty()) {
-            if (this.getData().equals(element)) {
-                result = this.getData();
-            } else {
-                result = this.getNext().search(element);
-            }
-
-        }
-        return result;
-    }
+        T search = null;
+		if (!this.isEmpty() && element != null) {
+			if (this.getData().equals(element)) {
+				search = this.getData();
+			} else {
+				search = this.getNext().search(element);
+			}
+		}
+		return search;
+	}
 
     @Override
     public T searchPosition(int position) {
-        T result = null;
-        if (position == 0 && position <= this.size()) {
-            result = this.getData();
-        } else {
-            result = this.getNext().searchPosition(position - 1);
-        }
-        return result;
-    }
+		T result = null;
+
+		if (!this.isEmpty() && position >= 0) {
+			if (position == 0) {
+				result = this.getData();
+			} else {
+				result = this.getNext().searchPosition(position - 1);
+			}
+
+		}
+
+		return result;
+	}
 
     @Override
     public void insertFirst(T element) {
+		if (element != null) {
+			if (this.isEmpty()) {
+				this.setData(element);
+				this.setNext(new RecursiveSingleLinkedListImpl<T>());
+			} else {
+				RecursiveSingleLinkedListImpl<T> newNode = new RecursiveSingleLinkedListImpl<>();
+				newNode.setData(this.getData());
+				newNode.setNext(this.getNext());
 
-        if (element != null) {
-            RecursiveSingleLinkedListImpl<T> newNode = new RecursiveSingleLinkedListImpl<>();
+				this.setData(element);
+				this.setNext(newNode);
+			}
+		}
 
-            newNode.setData(element);
-            newNode.setNext(this);
-
-            this.setData(newNode.getData());
-            this.setNext(newNode.getNext());
-        }
-    }
+	}
 
     @Override
-    public void insertLast(T element) {
-        if (element != null && this.isEmpty()) {
-            this.setData(element);
-            this.setNext(new RecursiveSingleLinkedListImpl<>());
-        } else {
-            this.getNext().insertLast(element);
-        }
-    }
+    public void insertLast(T element) { 
+        if (element != null) {
+			if (this.isEmpty()) {
+				this.setData(element);
+				this.setNext(new RecursiveSingleLinkedListImpl<T>());
+			} else {
+				this.next.insert(element);
+			}
+		}
+	}
 
     @Override
     public void insertPosition(int position, T element) {
-        if (element != null && position == 0) {
-            T newNode = this.getData();
-        } else {
-            this.getNext().insertPosition(position - 1, element);
-        }
-    }
+        if (element != null) {
+			if (position < 0) {
+				throw new IndexOutOfBoundsException("Position cannot be negative");
+			}
+			if (position == 0) {
+				RecursiveSingleLinkedListImpl<T> newNode = new RecursiveSingleLinkedListImpl<T>();
+				newNode.setData(this.getData());
+				newNode.setNext(this.getNext());
+				this.setData(element);
+				this.setNext(newNode);
+			} else if (position < this.size()) {
+				this.getNext().insertPosition(position - 1, element);
+			} else {
+				this.insert(element);
+			}
+		}
+
+	}
 
     @Override
     public void removeFirst() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeFirst'");
-    }
+		if (!this.isEmpty()) {
+			if (this.getNext() != null) {
+				this.setData(this.getNext().getData());
+				this.setNext(this.getNext().getNext());
+			} else{
+				this.setData(null);
+				this.setNext(null);
+			}
+		} else{
+			this.getNext().removeFirst();
+		}
+	}
 
     @Override
-    public void removeLast() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
-    }
+	public void removeLast() {
+		if (!this.isEmpty()) {
+			if (this.getNext().getNext() == null) {
+				this.setData(this.getNext().getData());	
+				this.setNext(this.getNext().getNext());		
+			} else{
+				this.getNext().removeLast();
+			}
+		}
+	}
 
     @Override
     public void removeValue(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeValue'");
+        if (!this.isEmpty() && element != null) {
+			if (this.getData().equals(element)) {
+				this.setData(this.next.getData());
+				this.setNext((this.next.getNext()));
+			} else {
+				this.getNext().remove(element);
+			}
+		}
     }
 
     @Override
     public void removePosition(int position) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removePosition'");
-    }
+		if(!this.isEmpty()){
+			if(position == 0){
+					this.setData(this.getNext().getData());
+					this.setNext(this.getNext().getNext());	
+			} else if( position < this.size()){
+				this.getNext().removePosition( position - 1);
+			} else{
+				this.removeLast();				
+			}	
+		}
+	}
 
     @Override
     public T[] toArray() {
