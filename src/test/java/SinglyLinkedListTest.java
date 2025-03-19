@@ -141,15 +141,22 @@ public class SinglyLinkedListTest {
 	}
 
 	@Test
-	public void testRmoveValue() {
+	public void testRemoveValue() {
 		Assert.assertEquals(3, lista1.size());
 		assertArrayEquals(new Integer[] {3, 2, 1}, lista1.toArray());
 		lista1.removeValue(1);
 		assertArrayEquals(new Integer[] {3, 2}, lista1.toArray());
 		lista1.removeValue(3);
 		assertArrayEquals(new Integer[] {2}, lista1.toArray());
-		
+	}
 
+	@Test
+	public void testContains() {
+		assertArrayEquals(new Integer[] {3, 2, 1}, lista1.toArray());
+		assertTrue(lista1.contains(2));
+		assertTrue(lista1.contains(1));
+		assertTrue(lista1.contains(3));
+		assertFalse(lista1.contains(5));
 	}
 
 	@Test

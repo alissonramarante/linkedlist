@@ -189,6 +189,18 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 			}
 		}
 	}
+    @Override
+    public boolean contains(T element) {
+        boolean result = false;
+        if(!this.isEmpty() && element != null){
+            if(this.getData().equals(element)){
+                result = true;
+            } else{
+                result = this.getNext().contains(element);
+            }
+        }
+        return result;
+    }
 
     @Override
     public void removeDuplicates() {
@@ -244,10 +256,6 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
         throw new UnsupportedOperationException("Unimplemented method 'findMiddle'");
     }
 
-    @Override
-    public boolean contains(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'contains'");
-    }
+    
 
 }
