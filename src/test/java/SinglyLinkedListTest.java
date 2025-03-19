@@ -2,6 +2,7 @@ import linkedlist.LinkedList;
 import linkedlist.RecursiveSingleLinkedListImpl;
 import linkedlist.SingleLinkedListImpl;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -26,9 +27,8 @@ public class SinglyLinkedListTest {
 	}
 
 	private void getImplementations() {
-		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		lista1 = new RecursiveSingleLinkedListImpl<>();
-		lista2 = new RecursiveSingleLinkedListImpl<>();
+		lista1 = new RecursiveSingleLinkedListImpl<Integer>();
+		lista2 = new RecursiveSingleLinkedListImpl<Integer>();
 	}
 
 	@Test
@@ -58,8 +58,8 @@ public class SinglyLinkedListTest {
 		Assert.assertEquals(5, lista1.size());
 
 		Assert.assertEquals(0, lista2.size());
-		lista2.insert(4);
-		lista2.insert(7);
+		lista2.insertLast(4);
+		lista2.insertLast(7);
 		Assert.assertEquals(2, lista2.size());
 	}
 
@@ -141,11 +141,14 @@ public class SinglyLinkedListTest {
 	}
 
 	@Test
-	public void testRemove() {
+	public void testRmoveValue() {
 		Assert.assertEquals(3, lista1.size());
-		lista1.remove(2);
-		lista1.remove(1);
-		Assert.assertEquals(1, lista1.size());
+		assertArrayEquals(new Integer[] {3, 2, 1}, lista1.toArray());
+		lista1.removeValue(1);
+		assertArrayEquals(new Integer[] {3, 2}, lista1.toArray());
+		lista1.removeValue(3);
+		assertArrayEquals(new Integer[] {2}, lista1.toArray());
+		
 
 	}
 

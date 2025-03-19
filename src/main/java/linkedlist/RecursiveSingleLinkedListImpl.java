@@ -1,5 +1,8 @@
 package linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
     protected T data;
@@ -93,7 +96,7 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 				this.setData(element);
 				this.setNext(new RecursiveSingleLinkedListImpl<T>());
 			} else {
-				this.next.insert(element);
+				this.next.insertLast(element);
 			}
 		}
 	}
@@ -113,7 +116,7 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 			} else if (position < this.size()) {
 				this.getNext().insertPosition(position - 1, element);
 			} else {
-				this.insert(element);
+				this.insertLast(element);
 			}
 		}
 
@@ -153,7 +156,7 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 				this.setData(this.next.getData());
 				this.setNext((this.next.getNext()));
 			} else {
-				this.getNext().remove(element);
+				this.getNext().removeValue(element);
 			}
 		}
     }
@@ -174,17 +177,18 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
     @Override
     public T[] toArray() {
-        T[] array = (T[]) new Comparable[this.size()];
-        this.toArray(array, 0);
-        return array;
-    }
-
-    private void toArray(T[] array, int i) {
-        if (!this.isEmpty()) {
-            array[i] = this.data;
-            this.next.toArray(array, i + 1);
-        }
-    }
+		List<T> list = new ArrayList<T>();
+		toArray(list);
+		return (T[]) list.toArray();
+	}
+	private void toArray(List<T> array){
+		if(!this.isEmpty()){
+			array.add(this.getData());
+			if(this.getNext() != null){
+				this.getNext().toArray(array);
+			}
+		}
+	}
 
     @Override
     public void removeDuplicates() {
